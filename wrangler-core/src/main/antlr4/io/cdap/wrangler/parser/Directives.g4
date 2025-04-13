@@ -64,6 +64,8 @@ directive
     | stringList
     | numberRanges
     | properties
+    | byteSizeArg
+    | timeDurationArg
   )*?
   ;
 
@@ -140,8 +142,14 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String 
+ | Number 
+ | Column 
+ | Bool 
+ | BYTE_SIZE      
+ | TIME_DURATION 
  ;
+
 
 ecommand
  : '!' Identifier
@@ -195,6 +203,15 @@ identifierList
  : Identifier (',' Identifier)*
  ;
 
+// NEW rules for BYTE_SIZE and TIME_DURATION
+
+byteSizeArg
+ : BYTE_SIZE
+ ;
+
+timeDurationArg
+ : TIME_DURATION
+ ;
 
 /*
  * Following are the Lexer Rules used for tokenizing the recipe.
@@ -311,3 +328,11 @@ fragment Int
 fragment Digit
  : [0-9]
  ;
+
+// NEW LEXER RULES FOR BYTE_SIZE AND TIME_DURATION
+
+BYTE_UNIT : ('B' | 'KB' | 'MB' | 'GB' | 'TB') ;
+TIME_UNIT : ('ms' | 's' | 'sec' | 'm' | 'min' | 'h' | 'd') ;
+
+BYTE_SIZE : Digit+ ('.' Digit+)? BYTE_UNIT ;
+TIME_DURATION : Digit+ ('.' Digit+)? TIME_UNIT ;

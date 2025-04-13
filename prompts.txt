@@ -1,0 +1,8 @@
+Prompt 1: "How to parse values like '10KB' or '1.5MB' in Java?"
+Prompt 2: "How to write a custom directive in CDAP Wrangler?"
+Prompt 3: "ANTLR lexer rule for BYTE_SIZE and TIME_DURATION?"
+Prompt 4: "How to write unit tests for custom Java classes?"
+Prompt 5: "How to use Maven to build and test a Java project?"
+Prompt 6: "How to add a new directive to an open source Java codebase?"
+Prompt 7: "How to handle custom token types in a Java-based grammar parser?"
+Prompt 8: "How to install and configure Maven on Windows?"
